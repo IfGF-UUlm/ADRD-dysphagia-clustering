@@ -1,0 +1,69 @@
+
+==============================================================================
+Supplementary Table 1: univariable logistic regression, 11 candidates
+==============================================================================
+                  feature   n      B     p    OR  CI_lo  CI_hi
+           Spontanschluck 156 -0.385 0.244 0.681  0.356  1.301
+  Oral_Phase_Mehrere_dich 158  1.961 0.000 7.108  2.372 21.299
+      Leaking_any_liquids 158  0.300 0.372 1.350  0.698  2.611
+           Swallow_Reflex 158  1.194 0.006 3.300  1.405  7.753
+            Trigger_spaet 158  0.587 0.080 1.799  0.932  3.473
+   Trigger_kaudal_any_neu 157  0.691 0.040 1.996  1.032  3.860
+            Whiteout_dich 158 -0.164 0.618 0.849  0.446  1.616
+Nachschluck_any2_ohneBrot 158  1.371 0.000 3.939  1.994  7.783
+         Residue_Sinus_Y2 158  0.876 0.009 2.401  1.240  4.650
+           Komplex_dich_A 158  1.056 0.015 2.876  1.231  6.722
+       SehrKomplex_dich_A 158  0.993 0.003 2.700  1.393  5.231
+
+==============================================================================
+Supplementary Table 4: multivariable model of the five selected features
+==============================================================================
+                               B     SE     OR  CI_lo   CI_hi      p
+const                     -0.561  0.337  0.571  0.295   1.105  0.096
+Nachschluck_any2_ohneBrot  1.202  0.378  3.328  1.586   6.985  0.001
+Residue_Sinus_Y2           0.401  0.384  1.493  0.704   3.167  0.296
+Oral_Phase_Mehrere_dich    1.608  0.598  4.994  1.547  16.124  0.007
+Swallow_Reflex             0.903  0.486  2.466  0.952   6.388  0.063
+Whiteout_dich             -0.451  0.377  0.637  0.304   1.333  0.231
+Nagelkerke R2 = 0.280
+In-sample sensitivity 0.82, specificity 0.62 (threshold 0.5)
+
+==============================================================================
+Collinearity of the selected features (variance inflation factors)
+==============================================================================
+Nachschluck_any2_ohneBrot    VIF 1.09
+Residue_Sinus_Y2             VIF 1.12
+Oral_Phase_Mehrere_dich      VIF 1.18
+Swallow_Reflex               VIF 1.13
+Whiteout_dich                VIF 1.03
+
+==============================================================================
+Supplementary Table 5: each feature adjusted for age, Barthel, sex, PD, stroke
+==============================================================================
+complete cases n = 152
+                  feature crude OR (95% CI) adjusted OR (95% CI)  p adjusted
+Nachschluck_any2_ohneBrot  4.38 (2.18-8.81)    4.94 (2.22-10.99)      0.0001
+         Residue_Sinus_Y2  2.48 (1.27-4.88)     3.05 (1.42-6.53)      0.0042
+  Oral_Phase_Mehrere_dich 6.64 (2.20-20.01)    7.11 (2.22-22.78)      0.0010
+           Swallow_Reflex  3.23 (1.37-7.62)    4.18 (1.59-10.97)      0.0036
+            Whiteout_dich  0.79 (0.41-1.52)     0.95 (0.45-1.97)      0.8816
+
+==============================================================================
+Supplementary Table 6: sensitivity analyses (PD, stroke, both excluded)
+==============================================================================
+excluding mild PD              n = 135 (dementia  77)  original assignment ARI 0.240  re-clustering ARI 0.240
+excluding history of stroke    n = 109 (dementia  65)  original assignment ARI 0.418  re-clustering ARI 0.119
+excluding both                 n =  86 (dementia  44)  original assignment ARI 0.449  re-clustering ARI 0.417
+
+==============================================================================
+Feature selection over all non-empty subsets and permutation test
+==============================================================================
+2047 subsets, best ARI 0.2469: ('Oral_Phase_Mehrere_dich', 'Swallow_Reflex', 'Whiteout_dich', 'Nachschluck_any2_ohneBrot', 'Residue_Sinus_Y2')
+999 permutations: mean max ARI 0.055, 95th percentile 0.096, p = 0.0010
+
+==============================================================================
+Robustness check: age (>= 85) and Barthel (< 60) added to the pool
+==============================================================================
+best overall ARI 0.2469: ('Spontanschluck', 'Oral_Phase_Mehrere_dich', 'Swallow_Reflex', 'Nachschluck_any2_ohneBrot', 'Alter_dich')
+best subset containing Alter_dich: ARI 0.2469 ('Spontanschluck', 'Oral_Phase_Mehrere_dich', 'Swallow_Reflex', 'Nachschluck_any2_ohneBrot', 'Alter_dich')
+best subset containing Barthel_dich: ARI 0.2251 ('Oral_Phase_Mehrere_dich', 'Trigger_kaudal_any_neu', 'Nachschluck_any2_ohneBrot', 'Residue_Sinus_Y2', 'Barthel_dich')
